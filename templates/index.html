@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Stock market analysis</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel=stylesheet type=text/css href="../static/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <link rel="stylesheet" href="/static/css/jquery-ui.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="col-md-6 col-sm-6 col-sm-offset-3 col-md-offset-3">
+        <h2 class="text-header text-center">Stock market analysis</h2>
+        <form action="http://127.0.0.1:3000/search" method="post">
+        <div class="form-group">
+          <input type="text" class="form-control" id="tags" placeholder="Enter stock code" name="stock" required>
+        </div>
+            <div class="col-sm-12 col-md-12 clearfix">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <input id="datepicker1" content="start date" type="date" class="form-control date" name="start-date" required>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <input id="datepicker2" content="end date" type="date" class="form-control date"  name="end-date" required>
+                    </div>
+                </div>
+            </div>
+        <input type="submit" class="btn btn-success btn-block" value="Submit">
+  </form>
+    </div>
+</div>
+  <script src="../static/jquery.min.js"></script>
+  <script src="../static/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="../static/javascript/autocomplete.js"></script>
+</body>
+</html>

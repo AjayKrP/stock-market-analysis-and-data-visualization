@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <link href="../static/c3.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+    <script type="text/javascript" src="../static/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/bootstrap.min.js"></script>
+    <script src="../static/d3.v3.min.js" charset="utf-8"></script>
+    <script src="../static/c3.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="col-sm-3 col-md-3">
+        <div class="nav-stock">
+            <ul class="nav nav-pills nav-stacked" role="tablist">
+                <li ><a href="/hologram">Draw HOLOGRAM</a></li>
+                <li><a href="/candle">Draw CANDLE Stick</a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-sm-9 col-md-9">
+        <div class="row">
+        <div id="chart"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-6">
+            <h3 class="text-success">predicted stock price is:{{ data }}</h3>
+        </div>
+        <div class="col-sm-6 col-md-6">
+            <h3 class="text-success">Accuracy: {{ accuracy }}</h3>
+            {% if accuracy > 0.5 %}
+                <h2 class="text-info">you shoud buy the stock</h2>
+            {% else %}
+                <h2 class="text-danger">You should wait for some day</h2>
+            {% endif %}
+        </div>
+        <div class="col-sm-6 col-md-6">
+                <h3 class="text-success">Number of days of prediction is: {{ no_of_day }} </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3 col-md-3">
+            <input type="button" name="one_year" class="btn btn-success" value="1 year">
+        </div>
+        <div class="col-sm-3 col-md-3">
+            <a class="btn btn-success">6 month</a>
+        </div>
+        <div class="col-sm-3 col-md-3">
+            <a class="btn btn-success">3 month</a>
+        </div>
+        <div class="col-sm-3 col-md-3">
+            <a class="btn btn-success">1 month</a>
+        </div>
+    </div>
+    </div>
+</div>
+<script>
+var chart = c3.generate({
+    bindto:'#chart',
+    data: {
+        url: '/static/data.csv',
+        type: 'spline'
+    }
+});
+</script>
+</body>
+</html>
